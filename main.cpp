@@ -35,12 +35,25 @@ int main(int argc, const char * argv[])
         print.printToken(token);
         if (token->getCode() != PERIOD && token->getCode() != END_OF_FILE)
         {
-            delete token;
+            if(token->getCode() == IDENTIFIER)
+            {
+                /*code to check binary tree, add to tree if necessary,
+                    find proper place in tree, and update linked list with
+                    line number, etc.
+                */
+            }
+            else
+                delete token;
         }
     }
     while (token->getCode() != PERIOD && token->getCode() != END_OF_FILE);
     
+    //code to recursively print the binery tree and then delete the tokens
+    
+    
+    //delete the last token which is the period after everything has been printed
     delete token;
+    //then close the src file
     fclose(source_file);
     return 0;
 }
