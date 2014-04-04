@@ -26,7 +26,7 @@ private:
 public:
     Print(char source_name[], char date[]);
     ~Print();
-    
+    void printReferenceHeader();
     void printLine(char line[]);
     void printToken(Token *token);
 };
