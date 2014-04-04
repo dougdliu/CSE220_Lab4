@@ -14,7 +14,7 @@ bTree::~bTree() //This is the destructor
 {
   destroy();
 }
-bTree::add() //This will add the identifier token either to the binary tree or adds page number to the linked list.
+bTree::add(Token *token, int line) //This will add the identifier token either to the binary tree or adds page number to the linked list.
 {
 
 
