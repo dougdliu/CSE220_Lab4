@@ -15,26 +15,33 @@ LinkedList::~LinkedList()
 }
 void LinkedList::addToList(int newLine)
 {
-	LineList *newNode = new LineList;
+	
+	
+	LinkedList *newNode = new LinkedList();
 	newNode->line = newLine;
 	newNode->nextLine = NULL;
 	
 	if(head == NULL)
 	{
 		head = newNode;
-		tail = newNode;
 	}
 	else
 	{
-		tail->nextLine = newNode;
-		tail = newNode;
+		//start at head of list and traverse to end
+		currentNode = head;
+		while(currentNode->nextLine != NULL)
+		{
+			currentNode = currentNode->nextLine;
+		}
+		//insert the new object at the end
+		currentNode->next = newNode;
 	}
 	
 }
 void LinkedList::printList()
 {
 	//traverse through the list and print the line numbers
-	LineList *currentNode;
+	
 	currentNode = head;
 	
 	while(currentNode != NULL)
