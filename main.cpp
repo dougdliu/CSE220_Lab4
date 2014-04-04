@@ -45,7 +45,7 @@ int main(int argc, const char * argv[])
                     and either add it alphabetically or add a line number to the linked list.
                     The current line number is also fetched and passed to add()
                 */
-                tree.add(token, scanner.getLineNumber());
+                tree.add(&token, scanner.getLineNumber());
                 
             }
             else
