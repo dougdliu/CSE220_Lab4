@@ -63,6 +63,10 @@ Scanner::~Scanner()
 {
     
 }
+int Scanner::getLineNumber()
+{
+    return line_number;
+}
 bool Scanner::getSourceLine(char source_buffer[])
 {
     char print_buffer[MAX_SOURCE_LINE_LENGTH + 9];
