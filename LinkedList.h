@@ -19,7 +19,12 @@ class LinkedList
 {
 
 	private:
-		
+		//initially the list in the token will be empty
+		LineList *rootPtr = NULL;
+		//This struct will be used when the Token is an identifer and we 
+		//need a linked list of integers. Each time the addToList metho is called
+		//on the line number the token is on it will allocate memory for a new LineList
+		//and insert it into the list. 
 		typedef struct LineList{
 			int line;
 			LineList *nextLine;
