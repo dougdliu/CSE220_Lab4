@@ -38,14 +38,13 @@ int main(int argc, const char * argv[])
         {
             if(token->getCode() == IDENTIFIER)
             {
-                //call the add method of bTree class on the identifer token,
-                //bTree will further find the proper place in the tree structure
-                //and either add it alphabetically or add a line number to the linked list
-                tree.add(token);
-                /*code to check binary tree, add to tree if necessary,
-                    find proper place in tree, and update linked list with
-                    line number, etc.
+                /*
+                    call the add method of bTree class on the identifer token,
+                    bTree will further find the proper place in the tree structure
+                    and either add it alphabetically or add a line number to the linked list
                 */
+                tree.add(token);
+                
             }
             else
                 delete token;
@@ -53,7 +52,14 @@ int main(int argc, const char * argv[])
     }
     while (token->getCode() != PERIOD && token->getCode() != END_OF_FILE);
     
+    //print the reference information header strings
+    print.printReferenceHeader();
+    
     //code to recursively print the binery tree and then delete the tokens
+    
+    //Will the bTree class have a method that does this? i.e. go through the list
+    //alhabetically, and then calling a print method in the token class which
+    //prints the identifer string and any line numbers in its linked list?
     
     
     //delete the last token which is the period after everything has been printed
