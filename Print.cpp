@@ -62,6 +62,12 @@ void Print::printPageHeader()
     putchar(FORM_FEED_CHAR);
     printf("Page    %d  %s  %s\n\n", ++pageNumber, sourceFileName.c_str(), currentDate.c_str());
 }
+void Print::printReferenceHeader()
+{
+    puts("Cross Reference Information");
+    puts("Identifier\t\tLine Numbers");
+    puts("----------\t\t-------------");
+}
 void Print::printToken(Token *token)
 {
     char line[MAX_SOURCE_LINE_LENGTH + 32];
