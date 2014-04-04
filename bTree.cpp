@@ -63,12 +63,14 @@ bTree::add(Token **token, int line) //This will add the identifier token either 
 			if(strcmp( (*token)->getString(), previous->getString()) < 0)
 			{
 				previous->leftChild = (*token);
+				(*token)->lines.addToList(line);
 				(*token)->leftChild = NULL;
 				(*token)->rightChild = NULL;
 			}
 			else
 			{
 				previous->rightChild = (*token);
+				(*token)->lines.addToList(line);
 				(*token)->leftChild = NULL;
 				(*token)->rightChild = NULL;
 			}
