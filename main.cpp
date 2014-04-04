@@ -38,12 +38,14 @@ int main(int argc, const char * argv[])
         {
             if(token->getCode() == IDENTIFIER)
             {
+                
                 /*
                     call the add method of bTree class on the identifer token,
                     bTree will further find the proper place in the tree structure
-                    and either add it alphabetically or add a line number to the linked list
+                    and either add it alphabetically or add a line number to the linked list.
+                    The current line number is also fetched and passed to add()
                 */
-                tree.add(token);
+                tree.add(token, scanner.getLineNumber());
                 
             }
             else
