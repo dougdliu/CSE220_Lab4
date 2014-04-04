@@ -19,13 +19,15 @@ class LinkedList
 {
 
 	private:
+		//static pointer to the head of the list
+		static LinkedList *head;
+		//pointer to the current node
+		LinkedList *currentNode;
 		//each LinkedList object will hold an int for line number
 		//and a pointer to the next LinkedList object
 		int line;
 		LinedList *nextLine;
 	
-		
-		
 		
 	public:
 		LinkedList();
