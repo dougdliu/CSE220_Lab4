@@ -35,7 +35,7 @@ class LinkedList
 	public:
 		LinkedList();
 		~LinkedList();
-		void addToList();
+		void addToList(int line);
 		void printList();
 };
 
