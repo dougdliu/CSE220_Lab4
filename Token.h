@@ -33,6 +33,7 @@ private:
     //What variables and methods am I missing to implement a binary tree.
     Token *leftChild;
     Token *rightChild;
+    LinkedList lines;
     
 public:
     Token();
