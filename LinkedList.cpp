@@ -13,7 +13,7 @@ LinkedList::~LinkedList()
 {
 	//destructor
 }
-LinkedList::addToList(int *newLine)
+void LinkedList::addToList(int *newLine)
 {
 	LineList *newNode = new LineList;
 	newNode->line = newLine;
@@ -30,7 +30,19 @@ LinkedList::addToList(int *newLine)
 		tail = newNode;
 	}
 	
+}
+void LinkedList::printList()
+{
+	//traverse through the list and print the line numbers
+	LineList *currentNode;
+	currentNode = head;
 	
-	
+	while(currentNode != NULL)
+	{
+		//print the line number of the current node
+		printf("%d\t", currentNode->line);
+		//set currentNode to the next node in te list
+		currentNode = currentNode->nextLine;
+	}
 }
 
