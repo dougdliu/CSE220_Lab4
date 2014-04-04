@@ -13,7 +13,7 @@ LinkedList::~LinkedList()
 {
 	//destructor
 }
-void LinkedList::addToList(int *newLine)
+void LinkedList::addToList(int newLine)
 {
 	LineList *newNode = new LineList;
 	newNode->line = newLine;
