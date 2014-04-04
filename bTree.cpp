@@ -22,7 +22,7 @@ bTree::add(Token **token, int line) //This will add the identifier token either 
 
 	if(root == NULL)
 	{
-		root = token;
+		root = (*token);
 		root->leftChild = NULL;
 		root->rightChild = NULL:
 	}
