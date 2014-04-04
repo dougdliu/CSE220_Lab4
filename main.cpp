@@ -28,6 +28,7 @@ int main(int argc, const char * argv[])
     FILE *source_file = init_lister(argv[1], source_name, date);
     Print print(source_name, date);
     Scanner scanner(source_file, source_name, date, print);
+    bTree tree();   //call default constructor of bTree 
     
     do
     {
@@ -37,6 +38,10 @@ int main(int argc, const char * argv[])
         {
             if(token->getCode() == IDENTIFIER)
             {
+                //call the add method of bTree class on the identifer token,
+                //bTree will further find the proper place in the tree structure
+                //and either add it alphabetically or add a line number to the linked list
+                tree.add(token);
                 /*code to check binary tree, add to tree if necessary,
                     find proper place in tree, and update linked list with
                     line number, etc.
