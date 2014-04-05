@@ -31,6 +31,7 @@ int main(int argc, const char * argv[])
     Print print(source_name, date);
     Scanner scanner(source_file, source_name, date, print);
     bTree tree;   //call default constructor of bTree 
+    int current_line = 0;
     
     do
     {
@@ -47,7 +48,8 @@ int main(int argc, const char * argv[])
                     and either add it alphabetically or add a line number to the linked list.
                     The current line number is also fetched and passed to add()
                 */
-                tree.add(&token, scanner.getLineNumber());
+                current_line = scanner.getLineNumber();
+                tree.add(&token, current_line);
                 
             }
             else
