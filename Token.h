@@ -33,8 +33,8 @@ private:
     //What variables and methods am I missing to implement a binary tree.
     Token *leftChild;
     Token *rightChild;
-    //pointer to the head of the LinkedList?
-    LinkedList *head;
+    
+    LinkedList lines();
     
 public:
     Token();
