@@ -13,7 +13,7 @@ LinkedList::~LinkedList()
 {
 	//destructor
 }
-void LinkedList::addToList(int newLine)
+void LinkedList::addToList(LinkedList *head, int newLine)
 {
 	
 	LinkedList *currentNode;
@@ -21,15 +21,15 @@ void LinkedList::addToList(int newLine)
 	newNode->line = newLine;
 	newNode->nextLine = NULL;
 	
-	//check to see if the LinkedList object'list' is null
-	if(lines == NULL)
+	//check to see if the LinkedList head data is 0
+	if(head->line == 0)
 	{
-		lines = newNode;
+		head = newNode;
 		
 	}
 	else
 	{
-		currentNode = lines;
+		currentNode = head;
 		while(currentNode->nextLine != NULL)
 		{
 			currentNode = currentNode->nextLine;
@@ -38,12 +38,12 @@ void LinkedList::addToList(int newLine)
 	}
 	
 }
-void LinkedList::printList()
+void LinkedList::printList(LinkedList *head)
 {
 	//traverse through the list and print the line numbers
 	
 	LinkedList *current;
-	current = lines;
+	current = head;
 	
 	while(current != NULL)
 	{
