@@ -46,7 +46,7 @@ void LinkedList::addToList(LinkedList **head, int newLine)
 	}
 	
 }
-void LinkedList::printList(LinkedList **head)
+void LinkedList::printList(const LinkedList **head)
 {
 	//traverse through the list and print the line numbers
 	
