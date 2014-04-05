@@ -29,7 +29,7 @@ void LinkedList::addToList(int newLine)
 	}
 	else
 	{
-		currentNode = list;
+		currentNode = lines;
 		while(currentNode->nextLine != NULL)
 		{
 			currentNode = currentNode->nextLine;
