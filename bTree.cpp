@@ -47,7 +47,9 @@ bTree::add(Token **token, int line) //This will add the identifier token either 
 			}
 			else if(strcmp( (*token)->getString(), current->getString()) == 0)
 			{
-				(*token)->lines.addToList((*token)->lines, line);
+				//Will this do a pass-by-reference of the LinkedList object in the token
+				//to the addToList method?
+				(*token)->lines.addToList( &((*token)->lines), line);
 				foundAlready = TRUE;
 				break;
 			}	
@@ -63,14 +65,14 @@ bTree::add(Token **token, int line) //This will add the identifier token either 
 			if(strcmp( (*token)->getString(), previous->getString()) < 0)
 			{
 				previous->leftChild = (*token);
-				(*token)->lines.addToList((*token)->lines, line);
+				(*token)->lines.addToList( &((*token)->lines), line);
 				(*token)->leftChild = NULL;
 				(*token)->rightChild = NULL;
 			}
 			else
 			{
 				previous->rightChild = (*token);
-				(*token)->lines.addToList((*token)->lines, line);
+				(*token)->lines.addToList( &((*token)->lines), line);
 				(*token)->leftChild = NULL;
 				(*token)->rightChild = NULL;
 			}
