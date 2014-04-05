@@ -17,5 +17,5 @@ public:
   ~bTree();
   
   void destroy(node *tokNode);
-  void add(Token *token, int line);
+  void add(Token **token, int line);
 };
