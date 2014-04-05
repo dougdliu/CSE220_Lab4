@@ -13,22 +13,22 @@ LinkedList::~LinkedList()
 {
 	//destructor
 }
-void LinkedList::addToList(int newLine)
+void LinkedList::addToList(LinkedList **head, int newLine)
 {
 	
-	
+	LinkedList *currentNode;
 	LinkedList *newNode = new LinkedList();
 	newNode->line = newLine;
 	newNode->nextLine = NULL;
 	
-	if(head == NULL)
+	if((*head) == NULL)
 	{
-		head = newNode;
+		(*head) = newNode;
 	}
 	else
 	{
 		//start at head of list and traverse to end
-		currentNode = head;
+		currentNode = (*head);
 		while(currentNode->nextLine != NULL)
 		{
 			currentNode = currentNode->nextLine;
@@ -38,18 +38,19 @@ void LinkedList::addToList(int newLine)
 	}
 	
 }
-void LinkedList::printList()
+void LinkedList::printList(LinkedList **head)
 {
 	//traverse through the list and print the line numbers
 	
-	currentNode = head;
+	LinkedList *current;
+	current = (*head);
 	
-	while(currentNode != NULL)
+	while(current != NULL)
 	{
 		//print the line number of the current node
-		printf("%d\t", currentNode->line);
+		printf("%d\t", current->line);
 		//set currentNode to the next node in te list
-		currentNode = currentNode->nextLine;
+		current = current->nextLine;
 	}
 }
 
