@@ -13,7 +13,7 @@ LinkedList::~LinkedList()
 {
 	//destructor
 }
-void LinkedList::addToList(LinkedList **head, int newLine)
+void LinkedList::addToList(LinkedList *head, int newLine)
 {
 	
 	LinkedList *currentNode;
@@ -24,10 +24,10 @@ void LinkedList::addToList(LinkedList **head, int newLine)
 	//check to see if the LinkedList head data is 0, if it
 	//is then we need to set the object in the token to the correct
 	//value of line and nextLine to NULL
-	if( (*head)->line == 0)
+	if( head->line == 0)
 	{
-		(*head)->line = newLine;
-		(*head)->nextLine = NULL;
+		head->line = newLine;
+		head->nextLine = NULL;
 		
 	}
 	//otherwise create a new LinkedList object for the list 
@@ -37,7 +37,7 @@ void LinkedList::addToList(LinkedList **head, int newLine)
 		newNode->line = newLine;
 		newNode->nextLine = NULL;
 		
-		currentNode = (*head);
+		currentNode = head;
 		while(currentNode->nextLine != NULL)
 		{
 			currentNode = currentNode->nextLine;
@@ -46,12 +46,12 @@ void LinkedList::addToList(LinkedList **head, int newLine)
 	}
 	
 }
-void LinkedList::printList(const LinkedList **head)
+void LinkedList::printList(const LinkedList *head)
 {
 	//traverse through the list and print the line numbers
 	
 	LinkedList *current;
-	current = (*head);
+	current = head;
 	
 	while(current != NULL)
 	{
