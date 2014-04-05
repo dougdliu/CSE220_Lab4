@@ -23,7 +23,7 @@ class LinkedList
 		//each LinkedList object will hold an int for line number
 		//and a pointer to the next LinkedList object
 		int line;
-		LinedList *nextLine;
+		LinkedList *nextLine;
 	
 		
 	public:
