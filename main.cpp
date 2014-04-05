@@ -30,7 +30,7 @@ int main(int argc, const char * argv[])
     FILE *source_file = init_lister(argv[1], source_name, date);
     Print print(source_name, date);
     Scanner scanner(source_file, source_name, date, print);
-    bTree tree();   //call default constructor of bTree 
+    bTree tree;   //call default constructor of bTree 
     
     do
     {
