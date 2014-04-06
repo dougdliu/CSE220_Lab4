@@ -36,7 +36,7 @@ private:
     Token *leftChild;
     Token *rightChild;
     
-    LinkedList lines();
+    LinkedList lines;
     
 public:
     Token();
