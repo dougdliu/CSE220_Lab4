@@ -18,9 +18,6 @@ void LinkedList::addToList(LinkedList *head, int newLine)
 {
 	
 	LinkedList *currentNode;
-	//LinkedList *newNode = new LinkedList();
-	//newNode->line = newLine;
-	//newNode->nextLine = NULL;
 	
 	//check to see if the LinkedList head data is 0, if it
 	//is then we need to set the object in the token to the correct
@@ -47,7 +44,7 @@ void LinkedList::addToList(LinkedList *head, int newLine)
 	}
 	
 }
-void LinkedList::printList(const LinkedList *head)
+void LinkedList::printList(LinkedList *head)
 {
 	//traverse through the list and print the line numbers
 	
