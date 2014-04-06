@@ -8,74 +8,75 @@
 
 bTree::bTree() //This is the constructor
 {
-  root = NULL;//sets root to NULL
+  root = NULL;
 }
 bTree::~bTree() //This is the destructor
 {
-  destroy();//calls the destroy method to destroy the tree
+  destroy();
 }
-void bTree::add(Token **token, int line) //This either sets the root node or calls the recursive add node
+void bTree::add(Token *token, int line)
 {
-	if(root != NULL)//If root is not empty, it will recursively call the recursive add method
+	if(root != NULL)
 	{
-		rAdd(*token, root, line); //This add has the wrong parameters, we need to fix this.
+		rAdd(token, root, line); //This add has the wrong parameters, we need to fix this.
 	}
 	else
 	{
-		root = new node; //creates a new node called root
-		root->treeNode = (*token); //sets the root node to pointer of token
-		root->leftChild = NULL; //sets the left child to NULL
-		root->rightChild = NULL; //sets the right child to NULL
+		root = token;
+		root->setLeftChild(NULL);
+		root->setRightChild(NULL);
 		//We need some code here to add to linked list
+		root->lines.addToList(&((token)->lines), line);
 	}
-}//end of add node
-void bTree::rAdd(Token **token, node *tokNode, int line) //This is the recursive add method
+}
+void bTree::rAdd(Token *token, Token *tokNode, int line)
 {
-	string a = (*token)->getTokenString(); //sets tokenString a
-	string b = (tokNode->treeNode).getTokenString(); //sets tokenString b
-	if(a.compare(b) < 0) //If string a compared to string b is less than 0, it will traverse the left side
+	string a = token->getTokenString();
+	string b = tokNode->getTokenString();
+	if(a.compare(b) < 0)
 	{
-		if(tokNode->leftChild != NULL) //if leftChild is not empty, it will keep going
+		if(tokNode->getLeftChild != NULL)
 		{
-			rAdd(**token, tokNode->leftChild, line); //This add has the wrong parameters, we need to fix this.
+			rAdd(token, tokNode->getLeftChild(), line);
 		}
-		else //This will add the token to linked list and the tree
-			tokNode->leftChild = new node; //creates a new node for the leftChild
-			tokNode->leftChild->treeNode = (*token); //sets the node for leftChild to be pointer of token
-			tokNode->leftChild->leftChild = NULL; //sets the leftChild of leftChild to Null
-			tokNode->leftChild->rightChild = NULL; //sets the rightChild of leftChild to Null
+		else
+			token->setLeftChild(token);
+			tokNode->getLeftChild()->setLeftChild(NULL);
+			tokNode->getLeftChild()->setRightChild(NULL);
 			//We need some code here to add to linked list
+			tokNode->lines.addToList(&((token)->lines), line);
 	}
-	else if(a.compare(b) > 0) //if string a compared to b is greater than 0, then it will traverse the right side
+	else if(a.compare(b) > 0)
 	{
-		if(tokNode->rightChild != NULL) //if rightChild is not empty, it will keep going
+		if(tokNode->getRightChild != NULL)
 		{
-			rAdd(**token, tokNode->leftChild, line); //This add has the wrong parameters, we need to fix this.
+			rAdd(token, tokNode->leftChild, line);
 		}
-		else //This will add the token to linked list and the tree
-			tokNode->rightChild = new node; //creates a new node for the rightChild
-			tokNode->rightChild->treeNode = (*token); //sets the node for leftChild to be pointer of token
-			tokNode->rightChild->leftChild = NULL; //sets the leftChild of rightChild to Null
-			tokNode->rightChild->rightChild = NULL; //sets the rightChild of rightChild to Null
+		else
+			tokNode->setRightChild(token);
+			tokNode->getRightChild()->setLeftChild(NULL);
+			tokNode->getRightChild()->setRightChild(NULL);
 			//We need some code here to add to linked list
+			tokNode->lines.addToList(&((token)->lines), line);
 	}
-	else if(a.compare(b) == 0) //if string a compared to string b = 0, it will add line number to linked list.
+	else if(a.compare(b) == 0)
 	{
 		//We need some code here to add to linked list
+		tokNode->lines.addToList(&((token)->lines), line);
 	}
-}//end of recursive add node
+}
 
-void bTree::destroy() //this calls the recursive destroy method to destroy the binary tree.
+void bTree::destroy()
 {
-	rDestroy(root); //calls the recursive destroy method
-} //end of destroy method
+	rDestroy(root);
+}
 
-void bTree::rDestroy(node *tokNode) //destroys the tree using post-order traversal
+void bTree::rDestroy(Token *tokNode)
 {
 	if(tokNode != NULL)
 	{
-		rDestroy(tokNode->leftChild); //this will destroy the left child.
-		rDestroy(tokNode->rightChild); //this will destroy the right child.
-		delete*tokNode; //destroys the parent of the left and right child.
+		rDestroy(tokNode->getLeftChild());
+		rDestroy(tokNode->getRightChild());
+		delete tokNode;
 	}
-} //end of rDestroy method
+}
