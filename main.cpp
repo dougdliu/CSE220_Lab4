@@ -62,12 +62,10 @@ int main(int argc, const char * argv[])
     print.printReferenceHeader();
     
     //code to recursively print the binery tree and then delete the tokens
-    
-    //Will the bTree class have a method that does this? i.e. go through the list
-    //alhabetically, and then calling a print method in the token class which
-    //prints the identifer string and any line numbers in its linked list?
-    
-    
+    bTree.print();
+    //call the destructor for the bTree object to delete the tree
+    delete bTree;
+   
     //delete the last token which is the period after everything has been printed
     delete token;
     //then close the src file
