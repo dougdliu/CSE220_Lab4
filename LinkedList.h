@@ -11,7 +11,7 @@
 
 #include <iostream>
 #include "common.h"
-#include "Token.h"
+
 
 using namespace std;
 
@@ -29,8 +29,8 @@ class LinkedList
 	public:
 		LinkedList();
 		~LinkedList();
-		void addToList(int line);
-		void printList();
+		void addToList(LinkedList *head, int newLine);
+		void printList(LinkedList *head);
 };
 
 #endif
