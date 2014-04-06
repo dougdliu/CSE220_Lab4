@@ -4,27 +4,28 @@
  *
  */
 
+#ifndef Lab4_bTree_H;
+#define Lab4_bTree_H;
+
 #include "Token.h"
 #include "common.h"
 
-struct node
-{
-	Token treeNode;
-	node *leftChild;
-	node *rightChild;
-};
 
 class bTree
 {
-private:
-	void add(Token **token, node *tokNode);
-	void destroy(node *tokNode);
-	node *root;
 
 public:
   bTree();
   ~bTree();
-  
-  void destroy(node *tokNode);
-  void add(Token **token, int line);
+
+  void add(Token *token, int line);
+  void destroy();
+
+private:
+  void rAdd(Token *token, Token *tokNode, int line);
+  void rDestroy(Token *tokNode);
+
+	Token *root;
 };
+
+#endif
