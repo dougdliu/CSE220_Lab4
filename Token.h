@@ -9,6 +9,7 @@
 #define __Lab4__Token__
 
 #include <iostream>
+#include <stdlib.h>
 #include "common.h"
 #include "LinkedList.h"
 
