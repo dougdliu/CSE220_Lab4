@@ -65,3 +65,21 @@ string Token::getTokenString()
     return this->tokenString;
 }
 //What methods am I missing to implement a binary tree.
+
+Token *Token::getLeftChild()
+{
+	return this->leftChild;
+}
+void Token::setLeftChild(Token *newToken)
+{
+	this->leftChild = newToken;
+}
+Token *Token::getRightChild()
+{
+	return this->rightChild;
+}
+void Token::setRightChild(Token *newToken)
+{
+	this->rightChild = newToken;
+}
+
