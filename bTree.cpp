@@ -12,13 +12,13 @@ bTree::bTree() //This is the constructor
 }
 bTree::~bTree() //This is the destructor
 {
-  destroy();
+  destroyTree();
 }
-void bTree::add(Token *token, int line)
+void bTree::addToTree(Token *token, int line)
 {
 	if(root != NULL)
 	{
-		rAdd(token, root, line); //This add has the wrong parameters, we need to fix this.
+		rAddToTree(token, root, line); //This add has the wrong parameters, we need to fix this.
 	}
 	else
 	{
@@ -29,7 +29,7 @@ void bTree::add(Token *token, int line)
 		root->lines.addToList(&((token)->lines), line);
 	}
 }
-void bTree::rAdd(Token *token, Token *tokNode, int line)
+void bTree::rAddToTree(Token *token, Token *tokNode, int line)
 {
 	string a = token->getTokenString();
 	string b = tokNode->getTokenString();
@@ -37,7 +37,7 @@ void bTree::rAdd(Token *token, Token *tokNode, int line)
 	{
 		if(tokNode->getLeftChild != NULL)
 		{
-			rAdd(token, tokNode->getLeftChild(), line);
+			rAddToTree(token, tokNode->getLeftChild(), line);
 		}
 		else
 		{
@@ -52,7 +52,7 @@ void bTree::rAdd(Token *token, Token *tokNode, int line)
 	{
 		if(tokNode->getRightChild != NULL)
 		{
-			rAdd(token, tokNode->leftChild, line);
+			rAddToTree(token, tokNode->leftChild, line);
 		}
 		else
 		{
@@ -70,34 +70,35 @@ void bTree::rAdd(Token *token, Token *tokNode, int line)
 	}
 }
 
-void bTree::destroy()
+void bTree::destroyTree()
 {
-	rDestroy(root);
+	rDestroyTree(root);
 }
 
-void bTree::rDestroy(Token *tokNode)
+void bTree::rDestroyTree(Token *tokNode)
 {
 	if(tokNode != NULL)
 	{
-		rDestroy(tokNode->getLeftChild());
-		rDestroy(tokNode->getRightChild());
+		rDestroyTree(tokNode->getLeftChild());
+		rDestroyTree(tokNode->getRightChild());
 		delete tokNode;
 	}
 }
 
-void bTree::print(Token *token) //This is the print method that will print the tree and calls the recursive print method.
+void bTree::printTree(Token *token) //This is the print method that will print the tree and calls the recursive print method.
 {
-	rPrint(token, root);
+	rPrintTree(token, root);
 }
 
-void bTree::rPrint(Token *token, Token *tokNode)
+void bTree::rPrintTree(Token *token, Token *tokNode)
 {
 	if(tokNode != NULL)
 	{
-		rPrint(token ,tokNode->getLeftChild());
+		rPrintTree(token ,tokNode->getLeftChild());
 		printf("%s",tokNode->getTokenString().c_str);
 		tokNode->lines.printList(&((token)->lines));
 		cout<<"\n"<<endl;
-		rPrint(token, tokNode->getRightChild());
+		rPrintTree(token, tokNode->getRightChild());
 	}
 }
+
