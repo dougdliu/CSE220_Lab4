@@ -10,10 +10,18 @@
 Token::Token()
 {
     //What code do I need here to initialize everything.
+    
+    //Make sure both child pointers are NULL for proper iteration through BST
+    leftChild = NULL;
+    rightChld = NULL;
 }
 Token::~Token()
 {
-    //What code do I need here to free memory
+    //This will call the deleteList method on the LinkedList object for this instance
+    //of the Token. deleteList() will iterate through the LinkedList and delete each object on the heap
+    //except for the first one, which was allocated on the stack and will be freed automatically
+    //when the Token object itself is freed.
+    lines.deleteList();
 }
 void Token::setCode(TokenCode newCode)
 {
