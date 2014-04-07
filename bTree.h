@@ -12,20 +12,25 @@
 
 using namespace std;
 
+
 class bTree
 {
 
 public:
-  	bTree();
-  	~bTree();
+  bTree();
+  ~bTree();
 
-  	void add(Token *token, int line);
-  	void destroy();
+  void addToTree(Token *token, int line);
+  void destroyTree();
+  void printTree(Token *token); //method to print and calls rPrint recursively
 
 private:
-	void rAdd(Token *token, Token *tokNode, int line);
-	void rDestroy(Token *tokNode);
+  void rAddToTree(Token *token, Token *tokNode, int line);
+  void rDestroyTree(Token *tokNode);
+  void rPrintTree(Token *token, Token *tokNode);
+
 	Token *root;
 };
 
 #endif
+
