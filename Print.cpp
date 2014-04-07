@@ -64,6 +64,7 @@ void Print::printPageHeader()
 }
 void Print::printReferenceHeader()
 {
+    puts("");
     puts("Cross Reference Information");
     puts("Identifier\t\tLine Numbers");
     puts("----------\t\t-------------");
