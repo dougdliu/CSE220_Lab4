@@ -3,7 +3,7 @@
  * Description: This is the source file for the binary tree class.
  *
  */
- 
+
 #include "bTree.h"
 
 bTree::bTree() //This is the constructor
@@ -14,71 +14,74 @@ bTree::~bTree() //This is the destructor
 {
   destroy();
 }
-bTree::add(Token **token, int line) //This will add the identifier token either to the binary tree or adds page number to the linked list.
+void bTree::add(Token *token, int line)
 {
-	Token *current;
-	Token *previous;
-	int foundAlready = FALSE;
-
-	if(root == NULL)
+	if(root != NULL)
 	{
-		root = (*token);
-		root->leftChild = NULL;
-		root->rightChild = NULL:
+		rAdd(token, root, line); //This add has the wrong parameters, we need to fix this.
 	}
 	else
 	{
-		current = root;
-		previous = root;
-
-		while(current != NULL)
+		root = token;
+		root->setLeftChild(NULL);
+		root->setRightChild(NULL);
+		//We need some code here to add to linked list
+		root->lines.addToList(&((token)->lines), line);
+	}
+}
+void bTree::rAdd(Token *token, Token *tokNode, int line)
+{
+	string a = token->getTokenString();
+	string b = tokNode->getTokenString();
+	if(a.compare(b) < 0)
+	{
+		if(tokNode->getLeftChild != NULL)
 		{
-			if(strcmp( (*token)->getString(),current->getString()) < 0)
-			{
-				//set the previous node pointer to the old node we're leaving
-				previous = current;
-				//set the current node pointer to the child node
-				current = current->leftChild;
-			}
-			else if(strcmp( (*token)->getString(), current->getString()) > 0)
-			{
-				previous = current;
-				current = current->rightChild;
-			}
-			else if(strcmp( (*token)->getString(), current->getString()) == 0)
-			{
-				//Will this do a pass-by-reference of the LinkedList object in the token
-				//to the addToList method?
-				(*token)->lines.addToList( &((*token)->lines), line);
-				foundAlready = TRUE;
-				break;
-			}	
-			
-				
-		}//end while loop
-		
-		//now current will be at either the left or right child of the node with a NULL child
-		//previous will be looking at the parent node so we need to set its correct child node to be
-		//pointing to the token that was passed in to the add function
-		if(!foundAlready)
-		{
-			if(strcmp( (*token)->getString(), previous->getString()) < 0)
-			{
-				previous->leftChild = (*token);
-				(*token)->lines.addToList( &((*token)->lines), line);
-				(*token)->leftChild = NULL;
-				(*token)->rightChild = NULL;
-			}
-			else
-			{
-				previous->rightChild = (*token);
-				(*token)->lines.addToList( &((*token)->lines), line);
-				(*token)->leftChild = NULL;
-				(*token)->rightChild = NULL;
-			}
+			rAdd(token, tokNode->getLeftChild(), line);
 		}
-		
-	}//end else block
+		else
+		{
+			token->setLeftChild(token);
+			tokNode->getLeftChild()->setLeftChild(NULL);
+			tokNode->getLeftChild()->setRightChild(NULL);
+			//We need some code here to add to linked list
+			tokNode->lines.addToList(&((token)->lines), line);
+		}
+	}
+	else if(a.compare(b) > 0)
+	{
+		if(tokNode->getRightChild != NULL)
+		{
+			rAdd(token, tokNode->leftChild, line);
+		}
+		else
+		{
+			tokNode->setRightChild(token);
+			tokNode->getRightChild()->setLeftChild(NULL);
+			tokNode->getRightChild()->setRightChild(NULL);
+			//We need some code here to add to linked list
+			tokNode->lines.addToList(&((token)->lines), line);
+		}
+	}
+	else if(a.compare(b) == 0)
+	{
+		//We need some code here to add to linked list
+		tokNode->lines.addToList(&((token)->lines), line);
+	}
+}
 
+void bTree::destroy()
+{
+	rDestroy(root);
+}
 
-}//end add method
+void bTree::rDestroy(Token *tokNode)
+{
+	if(tokNode != NULL)
+	{
+		rDestroy(tokNode->getLeftChild());
+		rDestroy(tokNode->getRightChild());
+		delete tokNode;
+	}
+}
+
