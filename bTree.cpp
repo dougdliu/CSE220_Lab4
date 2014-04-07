@@ -18,7 +18,7 @@ void bTree::addToTree(Token *token, int line)
 {
 	if(root != NULL)
 	{
-		rAddToTree(token, root, line); //This add has the wrong parameters, we need to fix this.
+		rAddToTree(token, root, line); //This will recursively call rAdd function to add the tree to the right place
 	}
 	else
 	{
