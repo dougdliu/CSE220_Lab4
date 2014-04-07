@@ -24,13 +24,15 @@ class LinkedList
 		//and a pointer to the next LinkedList object
 		int line;
 		LinkedList *nextLine;
-	
+		LinkedList *current;		
 		
 	public:
 		LinkedList();
 		~LinkedList();
-		void addToList(LinkedList *head, int newLine);
-		void printList(LinkedList *head);
+		void addToList(int newLine);
+		void set(int newLine);
+		void printList();
+		void deleteList();
 };
 
 #endif

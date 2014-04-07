@@ -6,50 +6,63 @@
 */
 #include "LinkedList.h"
 
+
+
 LinkedList::LinkedList()
 {
+	line = 0;
+	nextLine = NULL;	
+	
 	//default constructor
 }
 LinkedList::~LinkedList()
 {
 	//destructor
 }
-void LinkedList::addToList(LinkedList *head, int newLine)
+void LinkedList::addToList(int newLine)
 {
 	
-	LinkedList *currentNode;
+	LinkedList *current;
+	LinkedList *previous;
 	
-	//check to see if the LinkedList head data is 0, if it
-	//is then we need to set the object in the token to the correct
-	//value of line and nextLine to NULL
-	if( head->line == 0)
+	LinkedList *newNode = new LinkedList;
+	newNode->set(newLine);
+	
+	previous = NULL;
+	
+	if(this->nextLine == NULL)
 	{
-		head->line = newLine;
-		head->nextLine = NULL;
+		
+		this->nextLine = newNode;
 		
 	}
-	//otherwise create a new LinkedList object for the list 
 	else
 	{
-		LinkedList *newNode = new LinkedList();
-		newNode->line = newLine;
-		newNode->nextLine = NULL;
-		
-		currentNode = head;
-		while(currentNode->nextLine != NULL)
+		current = this;
+		while(current != NULL)
 		{
-			currentNode = currentNode->nextLine;
+			//printf("%d\n", current->line);
+			previous = current;
+			current = current->nextLine;
 		}
-		currentNode->nextLine = newNode;
+		previous->nextLine = newNode;
+		newNode->nextLine = current;
+		
 	}
 	
+	
+	
+	
+	
 }
-void LinkedList::printList(LinkedList *head)
+void LinkedList::printList()
 {
 	//traverse through the list and print the line numbers
 	
 	LinkedList *current;
-	current = head;
+	
+	
+	current = this;
 	
 	while(current != NULL)
 	{
@@ -58,5 +71,22 @@ void LinkedList::printList(LinkedList *head)
 		//set currentNode to the next node in te list
 		current = current->nextLine;
 	}
+	
+}
+void LinkedList::deleteList()
+{
+	LinkedList *temp;
+	temp = NULL;
+	while(this->nextLine != NULL)
+	{
+		temp = this->nextLine;
+		this->nextLine = temp->nextLine;
+		delete temp;	
+		
+	}
+}
+void LinkedList::set(int newLine)
+{
+	line = newLine;
 }
 

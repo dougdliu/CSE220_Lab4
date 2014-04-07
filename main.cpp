@@ -13,6 +13,7 @@
 #include "bTree.h"
 #include "LinkedList.h"
 
+
 FILE *init_lister(const char *name, char source_file_name[], char dte[]);
 void quit_scanner(FILE *src_file, Token *list);
 void add_token_to_list(Token *list, Token *new_token);
@@ -31,7 +32,7 @@ int main(int argc, const char * argv[])
     Print print(source_name, date);
     Scanner scanner(source_file, source_name, date, print);
     bTree tree;   //call default constructor of bTree 
-    
+ 
     
     do
     {
@@ -49,11 +50,14 @@ int main(int argc, const char * argv[])
                     The current line number is also fetched and passed to add()
                 */
                 
-                tree.add(token, scanner.getLineNumber() );
+                tree.addToTree(&token, scanner.getLineNumber() );
                 
             }
             else
+	    {
+		//delete the unnecessary Tokens as we find them
                 delete token;
+	    }
         }
     }
     while (token->getCode() != PERIOD && token->getCode() != END_OF_FILE);
@@ -61,9 +65,12 @@ int main(int argc, const char * argv[])
     //print the reference information header strings
     print.printReferenceHeader();
     
-    //code to recursively print the binery tree and then delete the tokens
-    tree.print();
-   
+    //code to recursively print the binery tree
+    tree.printTree( tree.getRoot()  ); 
+    
+    //code to delete the tokens in the tree and their embedded linked lists
+    tree.deleteTree( tree.getRoot() );
+    
     //delete the last token which is the period after everything has been printed
     delete token;
     //then close the src file
