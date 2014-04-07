@@ -63,8 +63,6 @@ int main(int argc, const char * argv[])
     
     //code to recursively print the binery tree and then delete the tokens
     bTree.print();
-    //call the destructor for the bTree object to delete the tree
-    delete bTree;
    
     //delete the last token which is the period after everything has been printed
     delete token;
