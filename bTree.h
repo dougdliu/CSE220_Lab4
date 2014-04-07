@@ -10,6 +10,7 @@
 #include "Token.h"
 #include "common.h"
 
+using namespace std;
 
 class bTree
 {
