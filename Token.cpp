@@ -74,6 +74,17 @@ string Token::getTokenString()
 }
 //What methods am I missing to implement a binary tree.
 
+LinkedList Token::getList()
+{
+	return this->lines;
+}
+void Token::setList(int newLine)
+{
+	//This will call addToList method of lines object to create a new instance of LinkedList.
+	lines.addToList(newLine);
+}
+
+//These methods are for setting and getting the child nodes of the Token object
 Token *Token::getLeftChild()
 {
 	return this->leftChild;
