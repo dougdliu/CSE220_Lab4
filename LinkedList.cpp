@@ -26,7 +26,7 @@ void LinkedList::addToList(int newLine)
 	LinkedList *previous;
 	
 	LinkedList *newNode = new LinkedList;
-	newNode->set(newLine);
+	newNode->line = newLine;
 	
 	previous = NULL;
 	
@@ -84,9 +84,5 @@ void LinkedList::deleteList()
 		delete temp;	
 		
 	}
-}
-void LinkedList::set(int newLine)
-{
-	line = newLine;
 }
 
