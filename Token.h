@@ -55,6 +55,8 @@ public:
     string getTokenString();
     void setNextToken(Token *newToken);
     Token* getNextToken();
+    LinkedList getList();
+    void setList(int newLine);
     Token* getLeftChild();
     void setLeftChild(Token *newToken);
     Token* getRightChild();
