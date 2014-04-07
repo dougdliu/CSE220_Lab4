@@ -85,20 +85,20 @@ void bTree::rDestroyTree(Token *tokNode)
 	}
 }
 
-void bTree::printTree(Token *token) //This is the print method that will print the tree and calls the recursive print method.
+void bTree::printTree() //This is the print method that will print the tree and calls the recursive print method.
 {
-	rPrintTree(token, root);
+	rPrintTree(root);
 }
 
-void bTree::rPrintTree(Token *token, Token *tokNode)
+void bTree::rPrintTree(Token *tokNode)
 {
 	if(tokNode != NULL)
 	{
-		rPrintTree(token ,tokNode->getLeftChild());
+		rPrintTree(tokNode->getLeftChild());
 		printf("%s",tokNode->getTokenString().c_str);
 		tokNode->lines.printList(&((token)->lines));
 		cout<<"\n"<<endl;
-		rPrintTree(token, tokNode->getRightChild());
+		rPrintTree(tokNode->getRightChild());
 	}
 }
 
