@@ -62,7 +62,7 @@ int main(int argc, const char * argv[])
     print.printReferenceHeader();
     
     //code to recursively print the binery tree and then delete the tokens
-    bTree.print();
+    tree.print();
    
     //delete the last token which is the period after everything has been printed
     delete token;
