@@ -49,7 +49,7 @@ int main(int argc, const char * argv[])
                     The current line number is also fetched and passed to add()
                 */
                 
-                tree.add(&token, scanner.getLineNumber() );
+                tree.add(token, scanner.getLineNumber() );
                 
             }
             else
