@@ -30,7 +30,6 @@ class LinkedList
 		LinkedList();
 		~LinkedList();
 		void addToList(int newLine);
-		void set(int newLine);
 		void printList();
 		void deleteList();
 };
