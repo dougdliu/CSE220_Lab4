@@ -50,7 +50,7 @@ int main(int argc, const char * argv[])
                     The current line number is also fetched and passed to add()
                 */
                 
-                tree.addToTree(&token, scanner.getLineNumber() );
+                tree.add(token, scanner.getLineNumber());
                 
             }
             else
@@ -66,10 +66,10 @@ int main(int argc, const char * argv[])
     print.printReferenceHeader();
     
     //code to recursively print the binery tree
-    tree.printTree( tree.getRoot()  ); 
+    tree.print(token); 
     
     //code to delete the tokens in the tree and their embedded linked lists
-    tree.deleteTree( tree.getRoot() );
+    tree.destroy();
     
     //delete the last token which is the period after everything has been printed
     delete token;
