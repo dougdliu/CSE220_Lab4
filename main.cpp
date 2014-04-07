@@ -13,7 +13,6 @@
 #include "bTree.h"
 #include "LinkedList.h"
 
-
 FILE *init_lister(const char *name, char source_file_name[], char dte[]);
 void quit_scanner(FILE *src_file, Token *list);
 void add_token_to_list(Token *list, Token *new_token);
@@ -31,9 +30,9 @@ int main(int argc, const char * argv[])
     FILE *source_file = init_lister(argv[1], source_name, date);
     Print print(source_name, date);
     Scanner scanner(source_file, source_name, date, print);
-    bTree tree;   //call default constructor of bTree 
- 
-    
+    bTree tree;   //call default constructor of bTree
+
+
     do
     {
         token = scanner.getToken();
@@ -42,35 +41,29 @@ int main(int argc, const char * argv[])
         {
             if(token->getCode() == IDENTIFIER)
             {
-                
+
                 /*
                     call the add method of bTree class on the identifer token,
                     bTree will further find the proper place in the tree structure
                     and either add it alphabetically or add a line number to the linked list.
                     The current line number is also fetched and passed to add()
                 */
-                
-                tree.add(token, scanner.getLineNumber());
-                
+
+                tree.addToTree(token, scanner.getLineNumber());
+
             }
             else
-	    {
-		//delete the unnecessary Tokens as we find them
                 delete token;
-	    }
         }
     }
     while (token->getCode() != PERIOD && token->getCode() != END_OF_FILE);
-    
+
     //print the reference information header strings
     print.printReferenceHeader();
-    
-    //code to recursively print the binery tree
-    tree.print(token); 
-    
-    //code to delete the tokens in the tree and their embedded linked lists
-    tree.destroy();
-    
+
+    //code to recursively print the binery tree and then delete the tokens
+    tree.printTree(token);
+
     //delete the last token which is the period after everything has been printed
     delete token;
     //then close the src file
@@ -81,7 +74,7 @@ FILE *init_lister(const char *name, char source_file_name[], char dte[])
 {
     time_t timer;
     FILE *file;
-    
+
     strcpy(source_file_name, name);
     file = fopen(source_file_name, "r");
     time(&timer);
