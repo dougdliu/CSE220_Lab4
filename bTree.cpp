@@ -96,7 +96,7 @@ void bTree::rPrintTree(Token *tokNode)
 	if(tokNode != NULL)
 	{
 		rPrintTree(tokNode->getLeftChild());
-		printf("%s/t/t/t",tokNode->getTokenString().c_str);
+		printf("%s/t/t/t",tokNode->getTokenString().c_str() );
 		tokNode->getList().printList();
 		cout<<"\n"<<endl;
 		rPrintTree(tokNode->getRightChild());
