@@ -118,7 +118,7 @@ Token* Scanner::getToken()
             getSpecial(token_string, token_ptr, new_token);
             break;
     }
-    
+    new_token->setLine(line_number);
     return new_token; //What should be returned here?
 }
 char Scanner::getChar(char source_buffer[])
