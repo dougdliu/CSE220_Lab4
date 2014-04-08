@@ -61,6 +61,7 @@ public:
     void setLeftChild(Token *newToken);
     Token* getRightChild();
     void setRightChild(Token *newToken);
+    void setLine(int line);
 };
 
 #endif /* defined(__Lab4__Token__) */

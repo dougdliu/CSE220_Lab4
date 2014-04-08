@@ -85,4 +85,8 @@ void LinkedList::deleteList()
 		
 	}
 }
+void LinkedList::set(int line_number)
+{
+	this->line = line_number;
+}
 

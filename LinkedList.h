@@ -32,6 +32,7 @@ class LinkedList
 		void addToList(int newLine);
 		void printList();
 		void deleteList();
+		void set(int line_number);
 };
 
 #endif

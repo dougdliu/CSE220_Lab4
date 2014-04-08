@@ -83,6 +83,10 @@ void Token::setList(int newLine)
 	//This will call addToList method of lines object to create a new instance of LinkedList.
 	lines.addToList(newLine);
 }
+void Token::setLine(int line)
+{
+	this->lines.set(line);
+}
 
 //These methods are for setting and getting the child nodes of the Token object
 Token *Token::getLeftChild()
