@@ -4,8 +4,8 @@
  *
  */
 
-#ifndef Lab4_bTree_H;
-#define Lab4_bTree_H;
+#ifndef Lab4_bTree_H
+#define Lab4_bTree_H
 
 #include "Token.h"
 #include "common.h"
