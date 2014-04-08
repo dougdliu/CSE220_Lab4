@@ -22,7 +22,7 @@ public:
 
   void addToTree(Token *token, int line);
   void destroyTree();
-  void printTree(Token *token); //method to print and calls rPrint recursively
+  void printTree(); //method to print and calls rPrint recursively
 
 private:
   void rAddToTree(Token *token, Token *tokNode, int line);

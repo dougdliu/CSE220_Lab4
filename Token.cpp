@@ -13,7 +13,7 @@ Token::Token()
     
     //Make sure both child pointers are NULL for proper iteration through BST
     leftChild = NULL;
-    rightChld = NULL;
+    rightChild = NULL;
 }
 Token::~Token()
 {
