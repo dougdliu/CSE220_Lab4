@@ -445,7 +445,7 @@ void Scanner::downshiftWord(char word[])
     /*
      Make all of the characters in the incoming word lower case.
      */
-    int index;
+    size_t index;
     
     for (index = 0; index < strlen(word); index++)
     {
