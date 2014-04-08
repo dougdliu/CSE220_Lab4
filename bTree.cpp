@@ -41,7 +41,7 @@ void bTree::rAddToTree(Token *token, Token *tokNode, int line)
 		}
 		else
 		{
-			token->setLeftChild(token);
+			tokNode->setLeftChild(token);
 			tokNode->getLeftChild()->setLeftChild(NULL);
 			tokNode->getLeftChild()->setRightChild(NULL);
 			//We need some code here to add to linked list
