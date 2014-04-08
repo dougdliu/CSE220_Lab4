@@ -26,7 +26,7 @@ void bTree::addToTree(Token *token, int line)
 		root->setLeftChild(NULL);
 		root->setRightChild(NULL);
 		//We need some code here to add to linked list
-		root->getList().addToList(line);
+		root->setList(line);
 	}
 }
 void bTree::rAddToTree(Token *token, Token *tokNode, int line)
@@ -45,7 +45,7 @@ void bTree::rAddToTree(Token *token, Token *tokNode, int line)
 			tokNode->getLeftChild()->setLeftChild(NULL);
 			tokNode->getLeftChild()->setRightChild(NULL);
 			//We need some code here to add to linked list
-			tokNode->getList().addToList(line);
+			tokNode->setList(line);
 		}
 	}
 	else if(a.compare(b) > 0)
@@ -60,13 +60,13 @@ void bTree::rAddToTree(Token *token, Token *tokNode, int line)
 			tokNode->getRightChild()->setLeftChild(NULL);
 			tokNode->getRightChild()->setRightChild(NULL);
 			//We need some code here to add to linked list
-			tokNode->getList().addToList(line);
+			tokNode->setList(line);
 		}
 	}
 	else if(a.compare(b) == 0)
 	{
 		//We need some code here to add to linked list
-		tokNode->getList().addToList(line);
+		tokNode->setList(line);
 		delete token;
 	}
 }
