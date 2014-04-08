@@ -27,7 +27,7 @@ public:
 private:
   void rAddToTree(Token *token, Token *tokNode, int line);
   void rDestroyTree(Token *tokNode);
-  void rPrintTree(Token *token, Token *tokNode);
+  void rPrintTree(Token *tokNode);
 
 	Token *root;
 };
