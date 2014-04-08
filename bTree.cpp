@@ -26,7 +26,7 @@ void bTree::addToTree(Token *token, int line)
 		root->setLeftChild(NULL);
 		root->setRightChild(NULL);
 		//We need some code here to add to linked list
-		root->lines.addToList(&((token)->lines), line);
+		root->lines.addToList(line);
 	}
 }
 void bTree::rAddToTree(Token *token, Token *tokNode, int line)
@@ -45,7 +45,7 @@ void bTree::rAddToTree(Token *token, Token *tokNode, int line)
 			tokNode->getLeftChild()->setLeftChild(NULL);
 			tokNode->getLeftChild()->setRightChild(NULL);
 			//We need some code here to add to linked list
-			tokNode->lines.addToList(&((token)->lines), line);
+			tokNode->lines.addToList(line);
 		}
 	}
 	else if(a.compare(b) > 0)
@@ -60,13 +60,14 @@ void bTree::rAddToTree(Token *token, Token *tokNode, int line)
 			tokNode->getRightChild()->setLeftChild(NULL);
 			tokNode->getRightChild()->setRightChild(NULL);
 			//We need some code here to add to linked list
-			tokNode->lines.addToList(&((token)->lines), line);
+			tokNode->lines.addToList(line);
 		}
 	}
 	else if(a.compare(b) == 0)
 	{
 		//We need some code here to add to linked list
-		tokNode->lines.addToList(&((token)->lines), line);
+		tokNode->lines.addToList(line);
+		delete token;
 	}
 }
 
@@ -95,8 +96,8 @@ void bTree::rPrintTree(Token *tokNode)
 	if(tokNode != NULL)
 	{
 		rPrintTree(tokNode->getLeftChild());
-		printf("%s",tokNode->getTokenString().c_str);
-		tokNode->lines.printList(&((token)->lines));
+		printf("%s/t/t/t",tokNode->getTokenString().c_str);
+		tokNode->lines.printList();
 		cout<<"\n"<<endl;
 		rPrintTree(tokNode->getRightChild());
 	}
