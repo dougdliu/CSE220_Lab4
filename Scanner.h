@@ -33,7 +33,8 @@ private:
     char todays_date[DATE_STRING_LENGTH];
     CharCode char_table[CHAR_TABLE_SIZE];  // The character table
     char source_line[MAX_SOURCE_LINE_LENGTH];
-    char *line_ptr = NULL;
+    //char *line_ptr = NULL;  // Apparently this isn't allowed? Instead maybe we set it to NULL in the Scanner constructor?
+    char *line_ptr;
     int line_number;
     
     bool getSourceLine(char source_buffer[]);
