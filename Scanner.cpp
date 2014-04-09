@@ -1,9 +1,18 @@
-//
-//  Scanner.cpp
-//  Lab4
-//
-//  Created by Bryce Holton.
-//
+/*
+ *Authors: Aaron Chasse, Jake Borg, Deming Liu
+ *CSE 220 - Lab 4
+ *04/09/2014
+ *
+ *Program Description: Scanner.cpp
+ *Contains the methods to iterate through an input file line by line tokenizing the text based on
+ *what parameters the input falls under. Creates a new Token object to store the token information
+ *and returns a pointer to it for the calling function. Also contains a method to get each line of text
+ *from an input file.
+ *
+ *Created by Bryce Holton.
+ *
+*/
+
 
 #include "Scanner.h"
 #include "Print.h"
