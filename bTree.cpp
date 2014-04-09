@@ -55,7 +55,7 @@ void bTree::rAddToTree(Token *token, Token *tokNode, int line)
 	{
 		if(tokNode->getRightChild() != NULL)
 		{
-			rAddToTree(token, tokNode->getLeftChild(), line);
+			rAddToTree(token, tokNode->getRightChild(), line);
 		}
 		else
 		{
