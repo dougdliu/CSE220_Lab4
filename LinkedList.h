@@ -1,9 +1,11 @@
 /*
-
-
-
-
-
+ *Authors: Aaron Chasse, Jake Borg, Deming Liu
+ *CSE 220 - Lab 4
+ *04/09/2014
+ *
+ *Program Description:
+ *Header file for LinkedList.cpp. Contains class definition, public and private variables and methods.
+ *
 */
 
 #ifndef _Lab4_LinkedList
