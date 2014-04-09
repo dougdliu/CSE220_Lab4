@@ -1,9 +1,16 @@
-//
-//  common.h
-//  Lab3
-//
-//  Created by Bryce Holton.
-//
+/*
+ *Authors: Aaron Chasse, Jake Borg, Deming Liu
+ *CSE 220 - Lab 4
+ *04/09/2014
+ *
+ *Program Description: common.h
+ *Common header file for including other header files frequently used by the program.
+ *Also defines constant variables.
+ *
+ *Created by Bryce Holton.
+ *
+*/
+
 
 #ifndef CSE220_project2_common_h
 #define CSE220_project2_common_h
