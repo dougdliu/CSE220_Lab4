@@ -89,4 +89,9 @@ void LinkedList::set(int line_number)
 {
 	this->line = line_number;
 }
-
+LinkedList* LinkedList::getNext() {
+	return this->nextLine;
+}
+int LinkedList::getLine() {
+	return this->line;
+}
