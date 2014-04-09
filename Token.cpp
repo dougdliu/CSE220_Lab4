@@ -1,16 +1,22 @@
-//
-//  Token.cpp
-//  Lab4
-//
-//  Created by Bryce Holton.
-//
+/*
+ *Authors: Aaron Chasse, Jake Borg, Deming Liu
+ *CSE 220 - Lab 4
+ *04/09/2014
+ *
+ *Program Description: Token.cpp
+ *Contains the methods inherent to the Token object needed to get and set the internal data. 
+ *When Token deconstructor is called it will call the deleteList method of its LinkedList object
+ *to iterate through the list and free the memory.
+ *
+ *Created by Bryce Holton.
+ *
+*/
+
 
 #include "Token.h"
 
 Token::Token()
 {
-    //What code do I need here to initialize everything.
-    
     //Make sure both child pointers are NULL for proper iteration through BST
     leftChild = NULL;
     rightChild = NULL;
@@ -19,8 +25,8 @@ Token::~Token()
 {
     //This will call the deleteList method on the LinkedList object for this instance
     //of the Token. deleteList() will iterate through the LinkedList and delete each object on the heap
-    //except for the first one, which was allocated on the stack and will be freed automatically
-    //when the Token object itself is freed.
+    //except for the first one, which will be freed automatically
+    //when the Token object itself is freed since memory for it was allocated when Token was instantiated.
     lines.deleteList();
 }
 void Token::setCode(TokenCode newCode)
@@ -72,8 +78,8 @@ string Token::getTokenString()
 {
     return this->tokenString;
 }
-//What methods am I missing to implement a binary tree.
 
+//Methods for implementing the Binary Search Tree
 LinkedList Token::getList()
 {
 	return this->lines;
