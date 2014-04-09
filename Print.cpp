@@ -1,9 +1,18 @@
-//
-//  Print.cpp
-//  Lab4
-//
-//  Created by Bryce Holton.
-//
+/*
+ *Authors: Aaron Chasse, Jake Borg, Deming Liu
+ *CSE 220 - Lab 4
+ *04/09/2014
+ *
+ *Program Description:
+ *Contains the methods needed to print the contents of Token objects to stdout, as well as
+ *page numbers, headers, line numbers, and each line of input.
+ *
+ *
+ *Created by Bryce Holton.
+ *
+*/
+
+
 
 #include "Print.h"
 #include "Token.h"
