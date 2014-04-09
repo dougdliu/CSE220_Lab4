@@ -11,6 +11,7 @@ UnitTests::UnitTests() {
 	c->setTokenString("c");
 	d->setTokenString("d");
 }
+UnitTests::~UnitTests() {}
 /* bTree tests */
 bool UnitTests::testAddToTree() {
 	tree.addToTree(b,1);
@@ -18,25 +19,25 @@ bool UnitTests::testAddToTree() {
 	tree.addToTree(d,3);
 	tree.addToTree(c,2);
 	if(a != b->getLeftChild()) {
-		printf("addToTree left child");
+		printf("addToTree left child\n");
 		return 0;
 	}
 	if(d != b->getRightChild()) {
-		printf("addToTree right child");
+		printf("addToTree right child\n");
 		return 0;
 	}
 	if(c != b->getRightChild()->getLeftChild())  {
-		printf("addToTree depth of 2");
+		printf("addToTree depth of 2\n");
 		return 0;
 	}
 	return 1;
 }
 bool UnitTests::testDestroyTree() {
 	tree.destroyTree();
-	if(a != NULL) { printf("a not destroyed"); return 0; }
-	if(b != NULL) { printf("b not destroyed"); return 0; }
-	if(c != NULL) { printf("c not destroyed"); return 0; }
-	if(d != NULL) { printf("d not destroyed"); return 0; }
+	if(a != NULL) { printf("a not destroyed\n"); return 0; }
+	if(b != NULL) { printf("b not destroyed\n"); return 0; }
+	if(c != NULL) { printf("c not destroyed\n"); return 0; }
+	if(d != NULL) { printf("d not destroyed\n"); return 0; }
 	return 1;
 }
 /* LinkedList tests */
@@ -45,10 +46,10 @@ bool UnitTests::testAddToList() {
 	lines.addToList(1);
 	lines.addToList(2);
 	lines.addToList(3);
-	if(lines.getLine() != 1) { printf("depth 0 not set"); return 0; }
-	if(lines.getNext()->getLine() != 1) { printf("depth 1 not set"); return 0; }
-	if(lines.getNext()->getNext()->getLine() != 2) { printf("depth 2 not set"); return 0; }
-	if(lines.getNext()->getNext()->getNext()->getLine() != 3) { printf("depth 3 not set"); return 0; }
+	if(lines.getNext()->getLine() != 1) { printf("depth 0 not set\n"); return 0; }
+	if(lines.getNext()->getNext()->getLine() != 1) { printf("depth 1 not set\n"); return 0; }
+	if(lines.getNext()->getNext()->getNext()->getLine() != 2) { printf("depth 2 not set\n"); return 0; }
+	if(lines.getNext()->getNext()->getNext()->getNext()->getLine() != 3) { printf("depth 3 not set\n"); return 0; }
 	return 1;
 }
 bool UnitTests::testDeleteList() {
