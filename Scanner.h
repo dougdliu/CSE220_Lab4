@@ -1,9 +1,16 @@
-//
-//  Scanner.h
-//  Lab4
-//
-//  Created by Bryce Holton.
-//
+/*
+ *Authors: Aaron Chasse, Jake Borg, Deming Liu
+ *CSE 220 - Lab 4
+ *04/09/2014
+ *
+ *Program Description: Scanner.h
+ *Header file for Scanner.cpp contains the Scanner class definition. Includes other header files
+ *needed for implementation.
+ *
+ *Created by Bryce Holton.
+ *
+*/
+
 
 #ifndef Lab4_Scanner_h
 #define Lab4_Scanner_h
@@ -23,17 +30,13 @@ CharCode;
 class Scanner
 {
 private:
-    /*********************
-     Private Variables for Scanner
-     Must be initialized in the constructor.
-     *********************/
+   
     Print print;
     FILE *src_file;
     char src_name[MAX_FILE_NAME_LENGTH];
     char todays_date[DATE_STRING_LENGTH];
     CharCode char_table[CHAR_TABLE_SIZE];  // The character table
     char source_line[MAX_SOURCE_LINE_LENGTH];
-    //char *line_ptr = NULL;  // Apparently this isn't allowed? Instead maybe we set it to NULL in the Scanner constructor?
     char *line_ptr;
     int line_number;
     
