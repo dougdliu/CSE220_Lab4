@@ -33,6 +33,9 @@ class LinkedList
 		void printList();
 		void deleteList();
 		void set(int line_number);
+		/* for testing */
+		LinkedList* getNext();
+		int getLine();
 };
 
 #endif
