@@ -1,6 +1,14 @@
 /*
+ *Authors: Aaron Chasse, Jake Borg, Deming Liu
+ *CSE 220 - Lab 4
+ *04/09/2014
+ *
+ *Program Description: bTree.cpp
+ *Contains the methods needed to implement a Binary Search Tree. Recursive methods to add a new Token
+ *to the tree in alphabetic order, print the entire tree in a post-order manner, 
+ *and destroy the tree when the tree deconstructor is called. 
+ *
  * Created By: Doug Liu
- * Description: This is the source file for the binary tree class.
  *
  */
 
@@ -12,6 +20,7 @@ bTree::bTree() //This is the constructor
 }
 bTree::~bTree() //This is the destructor
 {
+  //Call the destroyTree method which will recursively destroy the binary tree.
   destroyTree();
 }
 void bTree::addToTree(Token *token, int line)
