@@ -1,9 +1,15 @@
-//
-//  Print.h
-//  Lab4
-//
-//  Created by Bryce Holton.
-//
+/*
+ *Authors: Aaron Chasse, Jake Borg, Deming Liu
+ *CSE 220 - Lab 4
+ *04/09/2014
+ *
+ *Program Description:
+ *Header file for Print.cpp. Contains the Print class defintion.
+ *
+ *Created by Bryce Holton.
+ *
+*/
+
 
 #ifndef __Lab4__Print__
 #define __Lab4__Print__
