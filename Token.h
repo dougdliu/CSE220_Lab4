@@ -1,9 +1,15 @@
-//
-//  Token.h
-//  Lab4
-//
-//  Created by Bryce Holton.
-//
+/*
+ *Authors: Aaron Chasse, Jake Borg, Deming Liu
+ *CSE 220 - Lab 4
+ *04/09/2014
+ *
+ *Program Description: Token.h
+ *Header file contains the Token class definition.
+ *
+ *Created by Bryce Holton.
+ *
+*/
+
 
 #ifndef __Lab4__Token__
 #define __Lab4__Token__
@@ -32,10 +38,11 @@ private:
     }
     literal;
     string tokenString;
-    //What variables and methods am I missing to implement a binary tree.
+    //Pointers to the Token's left and right child nodes
     Token *leftChild;
     Token *rightChild;
-    
+    //LinkedLit object for holding the line number the Token was found on and a pointer to the next
+    //LinkedList object in the linked list.
     LinkedList lines;
     
 public:
