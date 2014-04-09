@@ -1,9 +1,21 @@
-//
-//  main.cpp
-//  Lab4
-//
-//  Created by Bryce Holton.
-//
+/*
+ *Authors: Aaron Chasse, Jake Borg, Deming Liu
+ *CSE 220 - Lab 4
+ *04/09/2014
+ *
+ *Program Description: main.cpp
+ *Takes a file containing text as a parameter. Opens the file and creates a new Scanner object to iterate 
+ *through the file line by line tokenizing the text. A pointer to the new token is returned from Scanner
+ *and its type is checked to see if it is an identifer. If it is an identifer, the binary tree object determines
+ *where in the tree it should be placed based on alphabetical precedence. If the token is not an identifer
+ *it is deleted by called in the deconstructor and freeing the memory. When a period '.' is reached, signifying
+ *the end of file, the binary tree is printed and each token is deleted. Then the final period token is deleted
+ *and the source file is closed.
+ *
+ *Created by Bryce Holton.
+ *
+*/
+
 
 #include <iostream>
 #include "common.h"
@@ -19,11 +31,7 @@ void add_token_to_list(Token *list, Token *new_token);
 
 int main(int argc, const char * argv[])
 {
-    /******************************************
-     This is not a correct implementation, you will need to modfy this
-     so that it satisfies the project problem.  Currently, this just
-     prints every token and then deletes every token.
-     *****************************************/
+
     Token *token = NULL;
     char source_name[MAX_FILE_NAME_LENGTH];
     char date[DATE_STRING_LENGTH];
