@@ -1,8 +1,14 @@
 /*
- * Created by: Doug Liu
- * Description: This is the header file for the binary tree class.
+ *Authors: Aaron Chasse, Jake Borg, Deming Liu
+ *CSE 220 - Lab 4
+ *04/09/2014
  *
- */
+ *Program Description: bTree.h
+ *Header file contains the bTree class definition.
+ *
+ * Created by: Doug Liu
+ *
+*/
 
 #ifndef Lab4_bTree_H
 #define Lab4_bTree_H
