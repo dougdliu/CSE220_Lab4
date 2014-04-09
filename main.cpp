@@ -31,7 +31,11 @@ void add_token_to_list(Token *list, Token *new_token);
 
 int main(int argc, const char * argv[])
 {
-
+    /******************************************
+     This is not a correct implementation, you will need to modfy this
+     so that it satisfies the project problem.  Currently, this just
+     prints every token and then deletes every token.
+     *****************************************/
     Token *token = NULL;
     char source_name[MAX_FILE_NAME_LENGTH];
     char date[DATE_STRING_LENGTH];
@@ -39,8 +43,23 @@ int main(int argc, const char * argv[])
     Print print(source_name, date);
     Scanner scanner(source_file, source_name, date, print);
     bTree tree;   //call default constructor of bTree
-
-
+	UnitTests run;
+	
+	if(!run.testAddToTree()) { printf("Failed testAddToTree\n"); }
+	if(!run.testAddToList()) { printf("Failed testAddToList\n"); }
+	if(!run.testDeleteList()) { printf("Failed testDeleteList\n"); }
+	if(!run.testDestroyTree()) { printf("Failed testDestroyTree\n"); }
+	/*
+	if(!run.testGetChar()) { printf("Failed testGetChar\n"); }
+	if(!run.testGetSourceLine()) { printf("Failed testGetSourceLine\n"); }
+	if(!run.testGetWord()) { printf("Failed testGetWord\n"); }
+	if(!run.testPrintList()) { printf("Failed testPrintList\n"); }
+	if(!run.testPrintTree()) { printf("Failed testPrintTree\n"); }
+	if(!run.testSet()) { printf("Failed testSet\n"); }
+	if(!run.testSkipBlanks()) { printf("Failed testSkipBlanks\n"); }
+	if(!run.testSkipComment()) { printf("Failed testSkipComment\n"); }
+	*/
+	
     do
     {
         token = scanner.getToken();
