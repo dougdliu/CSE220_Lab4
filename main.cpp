@@ -49,6 +49,12 @@ int main(int argc, const char * argv[])
 		if(!run.testDestroyTree()) { printf("Failed testDestroyTree\n"); }
 		if(!run.testSet()) { printf("Failed testSet\n"); }
 		if(!run.testGetToken(source_name, date, print)) { printf("Failed testGetToken\n"); }
+		if(!run.testCode()) { printf("Failed testCode\n"); }
+		if(!run.testType()) { printf("Failed testType\n"); }
+		if(!run.testIntLiteral()) { printf("Failed testIntLiteral\n"); }
+		if(!run.testRealLiteral()) { printf("Failed testRealLiteral\n"); }
+		if(!run.testStringLiteral()) { printf("Failed testStringLiteral\n"); }
+		if(!run.testTokenString()) { printf("Failed testTokenString\n"); }
 	}
 
     do
