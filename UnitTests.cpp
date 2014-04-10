@@ -80,28 +80,29 @@ bool UnitTests::testSet() {
 /* Scanner tests */
 bool UnitTests::testGetToken(char source_name[], char date[], Print printer) {
 	FILE *file;
+	int flag = 0;
 	Token *token = NULL;
 	file = fopen("UnitTests.txt" , "r");
 	Scanner scanner(file, source_name, date, printer);
 	token = scanner.getToken();
 	if(token->getTokenString().compare("identifier") != 0) {
 		printf("getToken fails to get identifiers\n");
-		return 0;
+		flag = 1;
 	}
 	token = scanner.getToken();
 	if(token->getTokenString().compare("one") != 0) {
 		printf("getToken fails to get second token\n");
-		return 0;
+		flag = 1;
 	}
 	token = scanner.getToken();
 	if(token->getTokenString().compare("two") != 0) {
 		printf("getToken fails to get third token\n");
-		return 0;
+		flag = 1;
 	}
 	token = scanner.getToken();
 	if(token->getTokenString().compare("newline") != 0) {
 		printf("getToken fails for multiple lines\n");
-		return 0;
+		flag = 1;
 	}
 	token = scanner.getToken();
 	if(token->getStringLiteral().compare("'string'") != 0) {
@@ -111,12 +112,14 @@ bool UnitTests::testGetToken(char source_name[], char date[], Print printer) {
 	token = scanner.getToken();
 	if(token->getIntLiteral() != 1234) {
 		printf("getToken fails to get integers\n");
-		return 0;
+		flag = 1;
 	}
 	token = scanner.getToken();
 	if(std::abs(token->getRealLiteral()-5.67) >= .01*5.67) {
 		printf("getToken fails to get floating point numbers\n");
-		return 0;
+		flag = 1;
 	}
+	fclose(file);
+	if(flag) { return 0; }
 	return 1;
 }
