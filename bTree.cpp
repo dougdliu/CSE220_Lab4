@@ -37,8 +37,6 @@ void bTree::addToTree(Token *token, int line)
 		root = token;
 		root->setLeftChild(NULL);
 		root->setRightChild(NULL);
-		//We need some code here to add to linked list
-		//root->setList(line);
 	}
 }
 void bTree::rAddToTree(Token *token, Token *tokNode, int line)
@@ -56,8 +54,7 @@ void bTree::rAddToTree(Token *token, Token *tokNode, int line)
 			tokNode->setLeftChild(token);
 			tokNode->getLeftChild()->setLeftChild(NULL);
 			tokNode->getLeftChild()->setRightChild(NULL);
-			//We need some code here to add to linked list
-			//tokNode->setList(line);
+
 		}
 	}
 	else if(a.compare(b) > 0)
@@ -71,25 +68,27 @@ void bTree::rAddToTree(Token *token, Token *tokNode, int line)
 			tokNode->setRightChild(token);
 			tokNode->getRightChild()->setLeftChild(NULL);
 			tokNode->getRightChild()->setRightChild(NULL);
-			//We need some code here to add to linked list
-			//tokNode->setList(line);
+
 		}
 	}
 	else if(a.compare(b) == 0)
 	{
-		//We need some code here to add to linked list
+		//add the line to the linked list for the Token that already exists in the tree
 		tokNode->setList(line);
+		//delete the token since we already have a copy of it in the tree
 		delete token;
 	}
 }
 
 void bTree::destroyTree()
 {
+	//call recursive method to dismantle the tree
 	rDestroyTree(root);
 }
 
 void bTree::rDestroyTree(Token *tokNode)
 {
+	//recursively delete the binary tree
 	if(tokNode != NULL)
 	{
 		rDestroyTree(tokNode->getLeftChild());
@@ -105,6 +104,7 @@ void bTree::printTree() //This is the print method that will print the tree and 
 
 void bTree::rPrintTree(Token *tokNode)
 {
+	//recursive print the binary tree 'in-order'
 	if(tokNode != NULL)
 	{
 		rPrintTree(tokNode->getLeftChild());
