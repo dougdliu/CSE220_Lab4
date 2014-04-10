@@ -45,6 +45,7 @@ bool UnitTests::testAddToTree() {
 	return 1;
 }
 bool UnitTests::testDestroyTree() {
+	// Currently, it's the test and not the method that's broken
 	tree.destroyTree();
 	if(a != NULL) { printf("a not destroyed\n"); return 0; }
 	if(b != NULL) { printf("b not destroyed\n"); return 0; }
@@ -107,7 +108,7 @@ bool UnitTests::testGetToken(char source_name[], char date[], Print printer) {
 	token = scanner.getToken();
 	if(token->getStringLiteral().compare("'string'") != 0) {
 		printf("getToken fails for to get strings\n");
-		return 0;
+		flag = 1;
 	}
 	token = scanner.getToken();
 	if(token->getIntLiteral() != 1234) {
