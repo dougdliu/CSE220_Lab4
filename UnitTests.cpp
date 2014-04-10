@@ -44,8 +44,7 @@ bool UnitTests::testAddToTree() {
 	}
 	return 1;
 }
-bool UnitTests::testDestroyTree() {
-	// Currently, it's the test and not the method that's broken
+bool UnitTests::testDestroyTree() { // Currently, it's the test and not the method that's broken
 	tree.destroyTree();
 	if(a != NULL) { printf("a not destroyed\n"); return 0; }
 	if(b != NULL) { printf("b not destroyed\n"); return 0; }
@@ -122,5 +121,62 @@ bool UnitTests::testGetToken(char source_name[], char date[], Print printer) {
 	}
 	fclose(file);
 	if(flag) { return 0; }
+	return 1;
+}
+
+/* Token Tests */
+bool UnitTests::testCode() {
+	Token* token = new Token();
+	token->setCode(IDENTIFIER);
+	if(token->getCode() != IDENTIFIER) { 
+		printf("Token get/setCode failed\n");
+		return 0;
+	}
+	return 1;
+}
+bool UnitTests::testType() {
+	Token* token = new Token();
+	token->setType(INTEGER_LIT);
+	if(token->getType() != INTEGER_LIT) { 
+		printf("Token get/setType failed\n");
+		return 0;
+	}
+	return 1;
+}
+bool UnitTests::testIntLiteral() {
+	Token* token = new Token();
+	token->setLiteral(1234);
+	if(token->getIntLiteral() != 1234) { 
+		printf("Token get/setIntLiteral failed\n");
+		return 0;
+	}
+	return 1;
+}
+bool UnitTests::testRealLiteral() {
+	Token* token = new Token();
+	token->setLiteral(5.67f);
+	if(std::abs(token->getRealLiteral()-5.67) >= .01*5.67) { 
+		printf("Token get/setRealLiteral failed\n");
+		return 0;
+	}
+	return 1;
+}
+bool UnitTests::testTokenString() {
+	Token* token = new Token();
+	token->setTokenString("string");
+	if(token->getTokenString().compare("string") != 0) { 
+		printf("Token get/setTokenString failed\n");
+		return 0;
+	}
+	return 1;
+}
+
+bool UnitTests::testStringLiteral() {
+	Token* token = new Token();
+	token->setLiteral("string");
+	if(token->getStringLiteral().compare("string") != 0) { 
+		printf("Token get/setStringLiteral failed\n");
+		return 0;
+	}
 	return 1;
 }
