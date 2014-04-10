@@ -156,7 +156,7 @@ bool UnitTests::testIntLiteral() {
 bool UnitTests::testRealLiteral() {
 	Token* token = new Token();
 	token->setLiteral(5.67f);
-	if(std::abs(token->getRealLiteral()-5.67) >= .01*5.67) { 
+	if(abs(token->getRealLiteral()-5.67) >= .01*5.67) { 
 		printf("Token get/setRealLiteral failed\n");
 		return 0;
 	}

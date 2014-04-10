@@ -14,6 +14,7 @@
 
 #include <stdlib.h>
 #include <iostream>
+#include <cmath>
 #include "common.h"
 #include "Print.h"
 #include "Scanner.h"
