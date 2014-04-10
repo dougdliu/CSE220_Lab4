@@ -1,0 +1,5 @@
+identifier one two
+newline
+'string'
+1234
+5.67.
