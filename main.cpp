@@ -24,6 +24,7 @@
 #include "Token.h"
 #include "bTree.h"
 #include "LinkedList.h"
+#include "UnitTests.h"
 
 FILE *init_lister(const char *name, char source_file_name[], char dte[]);
 void quit_scanner(FILE *src_file, Token *list);
