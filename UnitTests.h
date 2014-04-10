@@ -12,6 +12,7 @@
 #ifndef _Lab4_UnitTests
 #define _Lab4_UnitTests
 
+#include <stdlib.h>
 #include <iostream>
 #include "common.h"
 #include "Print.h"
