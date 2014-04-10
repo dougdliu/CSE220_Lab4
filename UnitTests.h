@@ -41,7 +41,13 @@ class UnitTests {
 		bool testSet();
 
 		/* Token tests */
-		// Do we need to test getters and setters?
+		bool testCode();
+		bool testType();
+		bool testIntLiteral();
+		bool testRealLiteral();
+		bool testStringLiteral();
+		bool testTokenString();
+
 
 	private:
 		LinkedList lines;
