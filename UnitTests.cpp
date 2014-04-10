@@ -1,3 +1,15 @@
+/*
+ * Authors: Aaron Chasse, Jake Borg, Deming Liu
+ * CSE 220 - Lab 4
+ * 04/09/2014
+ *
+ * Program Description:
+ * UnitTests.cpp contains methods for testing the public methods of the other classes.
+ * It hardcodes sample objects along with objects created using the methods, and verifies if their results
+ * are the same. Each tester method is run in main, and sends a flag for each test that fails.
+ *
+ */
+
 #include "UnitTests.h"
 
 UnitTests::UnitTests() {
