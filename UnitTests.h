@@ -1,9 +1,12 @@
 /*
-
-
-
-
-
+*Authors: Aaron Chasse, Jake Borg, Deming Liu
+*CSE 220 - Lab 4
+*04/09/2014
+*
+*Program Description: UnitTests.h
+*Header file contains the UnitTests class definition.
+*
+*
 */
 
 #ifndef _Lab4_UnitTests
