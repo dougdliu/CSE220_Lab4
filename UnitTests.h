@@ -24,12 +24,7 @@ class UnitTests {
 		UnitTests();
 		~UnitTests();
 		/* Scanner tests */
-		bool testGetSourceLine();
-		bool testGetChar();
-		bool testSkipBlanks();
-		bool testSkipComment();
-		bool testGetWord();
-		// TODO
+		bool testGetToken(char source_name[], char date[], Print printer);
 
 		/* bTree tests */
 		bool testAddToTree();
