@@ -65,7 +65,8 @@ bool UnitTests::testAddToList() {
 	return 1;
 }
 bool UnitTests::testDeleteList() {
-	if(lines.getLine() != NULL) { printf("delete list not working"); return 0;}
+	lines.deleteList();
+	if(lines.getLine() != 0) { printf("delete list not working"); return 0;}
 	return 1; //? How to test inner nodes?
 }
 bool UnitTests::testSet() {
