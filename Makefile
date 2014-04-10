@@ -5,8 +5,8 @@
 #!/bin/bash
 # File: Makefile
 
-lister: main.o Print.o Scanner.o LinkedList.o Token.o bTree.o
-	g++ main.o Print.o Scanner.o LinkedList.o Token.o bTree.o -o lister
+lister: main.o Print.o Scanner.o LinkedList.o Token.o bTree.o UnitTests.o
+	g++ main.o Print.o Scanner.o LinkedList.o Token.o bTree.o UnitTests.o -o lister
 
 main.o: main.cpp
 	g++ -c main.cpp
@@ -20,6 +20,8 @@ Token.o: Token.cpp
 	g++ -c Token.cpp
 bTree.o: bTree.cpp
 	g++ -c bTree.cpp
+UnitTests.o: UnitTests.cpp
+	g++ -c UnitTests.cpp
 
 
 
